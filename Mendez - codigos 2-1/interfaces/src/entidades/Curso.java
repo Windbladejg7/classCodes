@@ -1,0 +1,146 @@
+package entidades;
+import interfaz.interfaceOper;
+import interfaz.interfaceCurso;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Curso implements interfaceOper, interfaceCurso{
+    private String nombre;
+    private String descripcion;
+    private float precio;
+    //CURSO TIENE UN INSTRUCTOR
+    private Instructor instructor; //relacion de asociacion
+    //CURSO TIENE MUCHOS ESTUDIANTES
+    //private Estudiante[] listaEstudiantes; //relacion de asociacion
+    private ArrayList<Estudiante> listaEstudiantes; //relacion de asociacion
+    
+    //constructores
+    public Curso() {
+        this.nombre = "Por confirmar";
+    }
+    public Curso(String nombre, float precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+    // metodos get y set
+    public String getNombre() {
+        return this.nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public float getPrecio() {
+        return precio;
+    }
+    public void setPrecio(float precio) {
+        if (precio < 50 || precio >1000) {
+            System.out.println("Precio no valido, debe ser mayor o igual a 50");
+        } else {
+            this.precio = precio;
+        }
+    }
+    public String getDescripcion() {
+        return descripcion;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    
+    // get y set para instructor
+    public Instructor getInstructor(){
+        return this.instructor;
+    }
+    public void setInstructor(Instructor ins){
+        if(ins!=null){
+            this.instructor = ins;
+        } else {
+            System.out.println("El objeto instructor es null");
+        }
+    }
+    // get y set para listaEstudiantes
+    public ArrayList<Estudiante> getListaEstudiantes(){
+        return this.listaEstudiantes;
+    }
+    public void setListaEstudiantes(ArrayList<Estudiante> list){
+        if(list!=null && list.size()>=2){
+            this.listaEstudiantes = list;
+        }else {
+            System.out.println("Lista no valida");
+        }
+    }
+    
+    //sobrecarga de metodos
+    @Override
+    public void calcularPrecioFinal(float porcentajeDescuento) {
+         this.precio = this.precio - (this.precio * porcentajeDescuento);
+    }
+    @Override
+    public double calcularPrecioFinal(int horas) {
+        if (horas > 100) {
+            this.precio = this.precio -(this.precio * 0.10f);
+            //aplica 10% de descuento
+        }
+        return this.precio;
+    }
+
+    public void mostrarInfo() {
+        System.out.println("\nMostrando Curso:");
+        System.out.println("Nombre del curso: " + this.getNombre());
+        System.out.println("Decripcion: " + this.getDescripcion());
+        System.out.println("Precio Inicial: " + this.getPrecio());
+        
+        System.out.println("Instructor: ");
+        if(this.instructor!=null){
+            this.instructor.mostrarInfo();
+        }else {
+            System.out.println("No hay instructor");
+        }
+        
+        System.out.println("Lista de estudiantes: ");
+        if(listaEstudiantes!=null){
+            //for tradicional
+            for(int i=0; i<listaEstudiantes.size(); i++){
+                listaEstudiantes.get(i).mostrarInfo();
+            }
+            //foreach
+            for(Estudiante est: listaEstudiantes){
+                est.mostrarInfo();
+            }
+        }else {
+            System.out.println("No hay estudiantes");
+        }
+    }
+
+    public void ingresarDatos(Scanner scan) {
+        System.out.println("\nIngresando Curso:");
+        System.out.println("Nombre:");
+        this.setNombre(scan.nextLine());
+        System.out.println("Descripcion:");
+        this.setDescripcion(scan.nextLine());
+        System.out.print("Precio inicial del curso:");
+        this.precio = Float.parseFloat(scan.nextLine());
+    }
+    // modificar un metodo heredado por esta clase (sobreescritura)
+    //toString se hereda de Object
+    @Override
+    public String toString() {
+        return "Curso:" + "nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio;
+    }   
+    
+    @Override
+    public String obtenerIdentificador(){
+        return this.nombre;
+    }
+    
+    @Override
+    public void mostrarIdentificador(){
+            System.out.println("Identificador del curso: " + this.nombre);
+    }
+    
+    @Override
+    public void calcularPrecioFinal(int horas, int temas){
+        if(horas>20 && temas>5){
+            this.precio += 120;
+        }
+    }
+    
+}

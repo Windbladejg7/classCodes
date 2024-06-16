@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Grupal">
+  <ClassDiagramComponents>
+    <Class name="AdministradoraCliente" package="administracion" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="listaClientes" type="ArrayList&lt;Cliente&gt;" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="imprimir" returnType="void" visibility="public"/>
+        <Method name="agregarCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+        <Method name="obtenerCliente" returnType="Cliente" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="busquedaxNombre" returnType="Cliente" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="busquedaxTelefono" returnType="Cliente" visibility="public">
+          <Argument type="String" name="telefono"/>
+        </Method>
+        <Method name="menuDeOpciones" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AdministradoraMecanico" package="administracion" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="listaMecanicos" type="ArrayList&lt;Mecanico&gt;" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="imprimir" returnType="void" visibility="public"/>
+        <Method name="agregarMecanico" returnType="void" visibility="public">
+          <Argument type="Mecanico" name="mecanico"/>
+        </Method>
+        <Method name="obtenerMecanico" returnType="Mecanico" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="obtenerMecanico" returnType="Mecanico" visibility="public">
+          <Argument type="Vehiculo" name="vehiculo"/>
+        </Method>
+        <Method name="busquedaxNombre" returnType="Mecanico" visibility="public">
+          <Argument type="Vehiculo" name="vehiculo"/>
+        </Method>
+        <Method name="busquedaxNombre" returnType="Mecanico" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="busquedaxIdentificacion" returnType="Mecanico" visibility="public">
+          <Argument type="String" name="identificacion"/>
+        </Method>
+        <Method name="obtenerMecanicoAleatorio" returnType="Mecanico" visibility="public"/>
+        <Method name="menuDeOpciones" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AdministradoraMecanicoVehiculos" package="administracion" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="vehiculos" type="ArrayList&lt;Vehiculo&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregarVehiculo" returnType="void" visibility="public">
+          <Argument type="Vehiculo" name="vehiculo"/>
+        </Method>
+        <Method name="obtenerVehiculo" returnType="Vehiculo" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="imprimir" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AdministradoraReparacion" package="administracion" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="listaReparaciones" type="ArrayList&lt;Reparacion&gt;" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregarReparacion" returnType="void" visibility="public">
+          <Argument type="Reparacion" name="reparacion"/>
+        </Method>
+        <Method name="imprimir" returnType="void" visibility="public"/>
+        <Method name="busquedaxFecha" returnType="void" visibility="public">
+          <Argument type="String" name="fecha"/>
+        </Method>
+        <Method name="busquedaxMecanico" returnType="void" visibility="public">
+          <Argument type="String" name="mecanico"/>
+        </Method>
+        <Method name="menuDeOpciones" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AdministradoraRepuesto" package="administracion" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="listaRepuestos" type="ArrayList&lt;Repuesto&gt;" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregarRepuesto" returnType="void" visibility="public">
+          <Argument type="Repuesto" name="repuesto"/>
+        </Method>
+        <Method name="obtenerRepuesto" returnType="Repuesto" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="removerRepuesto" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="imprimir" returnType="void" visibility="public"/>
+        <Method name="menuDeOpciones" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AdministradoraVehiculo" package="administracion" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="listaVehiculos" type="ArrayList&lt;Vehiculo&gt;" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="imprimir" returnType="void" visibility="public"/>
+        <Method name="agregarVehiculo" returnType="void" visibility="public">
+          <Argument type="Vehiculo" name="vehiculo"/>
+        </Method>
+        <Method name="obtenerVehiculo" returnType="Vehiculo" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="busquedaxPlaca" returnType="Vehiculo" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="busquedaxModelo" returnType="void" visibility="public">
+          <Argument type="String" name="modelo"/>
+        </Method>
+        <Method name="menuDeOpciones" returnType="void" visibility="public"/>
+        <Method name="innerMenu" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cliente" package="entidades" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="valor_a_pagar" type="float" visibility="private"/>
+        <Field name="vehiculo" type="Vehiculo" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="float" name="valor_a_pagar"/>
+          <Argument type="Vehiculo" name="vehiculo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getValor_a_pagar" returnType="float" visibility="public"/>
+        <Method name="setValor_a_pagar" returnType="void" visibility="public">
+          <Argument type="float" name="valor_a_pagar"/>
+        </Method>
+        <Method name="getVehiculo" returnType="Vehiculo" visibility="public"/>
+        <Method name="setVehiculo" returnType="void" visibility="public">
+          <Argument type="Vehiculo" name="vehiculo"/>
+        </Method>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setTelefono" returnType="void" visibility="public">
+          <Argument type="String" name="telefono"/>
+        </Method>
+        <Method name="ingresarDatos" returnType="void" visibility="public"/>
+        <Method name="imprimirEnFila" returnType="void" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="imprimirEnBloque" returnType="void" visibility="public"/>
+        <Method name="calcularDescuento" returnType="float" visibility="public"/>
+        <Method name="calcularDescuento" returnType="float" visibility="public">
+          <Argument type="float" name="porcentaje"/>
+        </Method>
+        <Method name="calcularDescuento" returnType="float" visibility="public">
+          <Argument type="float" name="porcentaje"/>
+          <Argument type="float" name="descuentoAdicional"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Mecanico" package="entidades" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="identificacion" type="String" visibility="private"/>
+        <Field name="vehiculos" type="AdministradoraMecanicoVehiculos" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="String" name="identificacion"/>
+          <Argument type="AdministradoraMecanicoVehiculos" name="vehiculos"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdentificacion" returnType="String" visibility="public"/>
+        <Method name="getListaVehiculos" returnType="AdministradoraMecanicoVehiculos" visibility="public"/>
+        <Method name="setIdentificacion" returnType="void" visibility="public">
+          <Argument type="String" name="identificacion"/>
+        </Method>
+        <Method name="setVehiculos" returnType="void" visibility="public">
+          <Argument type="AdministradoraMecanicoVehiculos" name="vehiculos"/>
+        </Method>
+        <Method name="agregarVehiculoAMecanico" returnType="void" visibility="public">
+          <Argument type="Vehiculo" name="vehiculo"/>
+        </Method>
+        <Method name="ingresarDatos" returnType="void" visibility="public"/>
+        <Method name="imprimirEnFila" returnType="void" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="imprimirEnBloque" returnType="void" visibility="public"/>
+        <Method name="seleccionarRepuesto" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="entidades" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="telefono"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setTelefono" returnType="void" visibility="public">
+          <Argument type="String" name="telefono"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getTelefono" returnType="String" visibility="public"/>
+        <Method name="mostrarInfo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Reparacion" package="entidades" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="fecha" type="String" visibility="private"/>
+        <Field name="motivo" type="String" visibility="private"/>
+        <Field name="costo" type="float" visibility="private"/>
+        <Field name="vehiculo" type="Vehiculo" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="fecha"/>
+          <Argument type="String" name="motivo"/>
+          <Argument type="float" name="costo"/>
+          <Argument type="Vehiculo" name="vehiculo"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Vehiculo" name="vehiculo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFecha" returnType="String" visibility="public"/>
+        <Method name="setFecha" returnType="void" visibility="public">
+          <Argument type="String" name="fecha"/>
+        </Method>
+        <Method name="getMotivo" returnType="String" visibility="public"/>
+        <Method name="setMotivo" returnType="void" visibility="public">
+          <Argument type="String" name="motivo"/>
+        </Method>
+        <Method name="getCosto" returnType="float" visibility="public"/>
+        <Method name="setCosto" returnType="void" visibility="public">
+          <Argument type="float" name="costo"/>
+        </Method>
+        <Method name="getVehiculo" returnType="Vehiculo" visibility="public"/>
+        <Method name="setVehiculo" returnType="void" visibility="public">
+          <Argument type="Vehiculo" name="vehiculo"/>
+        </Method>
+        <Method name="ingresarDatos" returnType="void" visibility="public"/>
+        <Method name="imprimirEnFila" returnType="void" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="imprimirEnBloque" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Repuesto" package="entidades" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="cantidad" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="codigo" type="String" visibility="private"/>
+        <Field name="precio" type="float" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setCantidad" returnType="void" visibility="public">
+          <Argument type="int" name="cantidad"/>
+        </Method>
+        <Method name="setCodigo" returnType="void" visibility="public">
+          <Argument type="String" name="codigo"/>
+        </Method>
+        <Method name="setPrecio" returnType="void" visibility="public">
+          <Argument type="float" name="precio"/>
+        </Method>
+        <Method name="getCantidad" returnType="int" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getCodigo" returnType="String" visibility="public"/>
+        <Method name="getPrecio" returnType="float" visibility="public"/>
+        <Method name="ingresarDatos" returnType="void" visibility="public"/>
+        <Method name="disminuir" returnType="void" visibility="public"/>
+        <Method name="imprimirEnFila" returnType="void" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="imprimirEnBloque" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Vehiculo" package="entidades" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="modelo" type="String" visibility="private"/>
+        <Field name="color" type="String" visibility="private"/>
+        <Field name="mecanico" type="String" visibility="private"/>
+        <Field name="placa" type="String" visibility="private"/>
+        <Field name="estado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Mecanico" name="mecanico"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="color"/>
+          <Argument type="String" name="mecanico"/>
+          <Argument type="String" name="placa"/>
+          <Argument type="boolean" name="estado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setModelo" returnType="void" visibility="public">
+          <Argument type="String" name="modelo"/>
+        </Method>
+        <Method name="getModelo" returnType="String" visibility="public"/>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="String" name="color"/>
+        </Method>
+        <Method name="getColor" returnType="String" visibility="public"/>
+        <Method name="setMecanico" returnType="void" visibility="public">
+          <Argument type="String" name="mecanico"/>
+        </Method>
+        <Method name="getMecanico" returnType="String" visibility="public"/>
+        <Method name="setPlaca" returnType="void" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="getPlaca" returnType="String" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="getEstado" returnType="String" visibility="public"/>
+        <Method name="ingresarDatos" returnType="void" visibility="public"/>
+        <Method name="imprimirEnFila" returnType="void" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="imprimirEnBloque" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TallerAutomotriz" package="grupal" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="ControllersInterface" package="Interfaces" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Methods>
+        <Method name="imprimir" returnType="void" visibility="package"/>
+        <Method name="menuDeOpciones" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Interface name="EntidadesInterface" package="Interfaces" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Methods>
+        <Method name="ingresarDatos" returnType="void" visibility="package"/>
+        <Method name="imprimirEnFila" returnType="void" visibility="package">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="imprimirEnBloque" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Interface name="VehiculoControllerInterface" package="Interfaces" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Methods>
+        <Method name="agregarVehiculo" returnType="void" visibility="package">
+          <Argument type="Vehiculo" name="vehiculo"/>
+        </Method>
+        <Method name="obtenerVehiculo" returnType="Vehiculo" visibility="package">
+          <Argument type="int" name="index"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="administracion.AdministradoraRepuesto" target="entidades.Repuesto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="vehiculos" source="entidades.Mecanico" target="administracion.AdministradoraMecanicoVehiculos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Interfaces.VehiculoControllerInterface" target="entidades.Vehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="entidades.Mecanico" target="Interfaces.EntidadesInterface"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="entidades.Repuesto" target="Interfaces.EntidadesInterface"/>
+    <HasRelation name="listaClientes" source="administracion.AdministradoraCliente" target="entidades.Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Cliente&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="administracion.AdministradoraVehiculo" target="Interfaces.VehiculoControllerInterface"/>
+    <UseRelation source="administracion.AdministradoraVehiculo" target="entidades.Vehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="listaVehiculos" source="administracion.AdministradoraVehiculo" target="entidades.Vehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Vehiculo&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="entidades.Reparacion" target="Interfaces.EntidadesInterface"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="entidades.Vehiculo" target="Interfaces.EntidadesInterface"/>
+    <HasRelation name="vehiculo" source="entidades.Reparacion" target="entidades.Vehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="entidades.Mecanico" target="entidades.Persona"/>
+    <HasRelation name="listaReparaciones" source="administracion.AdministradoraReparacion" target="entidades.Reparacion" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Reparacion&gt;"/>
+    <HasRelation name="vehiculo" source="entidades.Cliente" target="entidades.Vehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="entidades.Mecanico" target="entidades.Vehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="administracion.AdministradoraCliente" target="entidades.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="administracion.AdministradoraRepuesto" target="Interfaces.ControllersInterface"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="administracion.AdministradoraMecanicoVehiculos" target="Interfaces.VehiculoControllerInterface"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="administracion.AdministradoraReparacion" target="Interfaces.ControllersInterface"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="administracion.AdministradoraCliente" target="Interfaces.ControllersInterface"/>
+    <HasRelation name="listaRepuestos" source="administracion.AdministradoraRepuesto" target="entidades.Repuesto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Repuesto&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="entidades.Cliente" target="Interfaces.EntidadesInterface"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="administracion.AdministradoraVehiculo" target="Interfaces.ControllersInterface"/>
+    <HasRelation name="vehiculos" source="administracion.AdministradoraMecanicoVehiculos" target="entidades.Vehiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Vehiculo&gt;"/>
+    <HasRelation name="listaMecanicos" source="administracion.AdministradoraMecanico" target="entidades.Mecanico" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Mecanico&gt;"/>
+    <UseRelation source="administracion.AdministradoraMecanicoVehiculos" target="entidades.Vehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="administracion.AdministradoraReparacion" target="entidades.Reparacion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="administracion.AdministradoraMecanico" target="entidades.Mecanico" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="entidades.Reparacion" target="entidades.Vehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="administracion.AdministradoraMecanico" target="Interfaces.ControllersInterface"/>
+    <UseRelation source="entidades.Cliente" target="entidades.Vehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="entidades.Cliente" target="entidades.Persona"/>
+    <UseRelation source="administracion.AdministradoraMecanico" target="entidades.Vehiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

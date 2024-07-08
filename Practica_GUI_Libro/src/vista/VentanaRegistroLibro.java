@@ -4,6 +4,13 @@
  */
 package vista;
 
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import modelo.DTO.Autor;
+import modelo.DTO.Libro;
+
 /**
  *
  * @author LAB-101-PC14
@@ -128,7 +135,7 @@ public class VentanaRegistroLibro extends javax.swing.JFrame {
                                 .addGap(48, 48, 48)
                                 .addComponent(jLabel1))
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(spiAnioPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +163,7 @@ public class VentanaRegistroLibro extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(77, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -209,6 +216,11 @@ public class VentanaRegistroLibro extends javax.swing.JFrame {
         });
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(new java.awt.Color(255, 0, 0));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -241,7 +253,7 @@ public class VentanaRegistroLibro extends javax.swing.JFrame {
                 .addComponent(chkEsBN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chkTieneImagenes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnCancelar))
@@ -252,21 +264,15 @@ public class VentanaRegistroLibro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(7, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -295,6 +301,51 @@ public class VentanaRegistroLibro extends javax.swing.JFrame {
     private void chkTieneImagenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkTieneImagenesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkTieneImagenesActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        Libro libro = new Libro();
+        libro.setTitulo(txtTitulo.getText());   
+        Autor autor = new Autor();
+        String nombreAutor = (String)cmbAutor.getSelectedItem();
+        autor.setNombres(nombreAutor);
+        libro.setAutor(autor);
+        
+        //leer spinner
+        int anio = (int)spiAnioPublicacion.getValue();
+        libro.setAnioPublicacion(anio);
+        //leer de un textfield
+        float precio = Float.parseFloat(txtPrecio.getText());
+        libro.setPrecio(precio);
+        
+        //leer de radioButtons
+        if(rbFiccion.isSelected()) {
+            libro.setGenero(rbFiccion.getText());
+        } else if (rbMisterio.isSelected()){
+            libro.setGenero(rbMisterio.getText());
+        } else if (rbRomance1.isSelected()){
+            libro.setGenero(rbRomance1.getText());
+        }
+        //2da forma de leer radioButtons (ButtonGroup)
+        Enumeration<AbstractButton> radios = buttonGroup1.getElements();
+        for(int i=0; i<buttonGroup1.getButtonCount(); i++){
+            JRadioButton rd = (JRadioButton)radios.nextElement();
+            if(rd.isSelected()){
+                libro.setGenero(rd.getText());
+            }
+        }
+        //leer del checbox
+        if(chkEsAColores.isSelected()){
+            libro.setEsAColores(true);        
+        }else{
+            libro.setEsAColores(false);
+        }
+        libro.setEsBoN(chkEsBN.isSelected());
+        libro.setTieneImagenes(chkTieneImagenes.isSelected());
+        
+        System.out.println(libro.toString());
+        JOptionPane.showMessageDialog(null,"Guardado exitosamente", nombreAutor, JOptionPane.QUESTION_MESSAGE);
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments

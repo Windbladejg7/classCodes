@@ -107,7 +107,7 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Libro:/n" + "titulo=" + titulo + ", genero=" + genero + ", anio de Publicacion=" + anioPublicacion + ", precio=" + precio + ", es A Colores=" + esAColores + ", es Blanco o Negro=" + esBoN + ", tiene Imagenes=" + tieneImagenes + ", autor=" + autor.toString() + '}';
+        return "Libro:" + "titulo=" + titulo + ", genero=" + genero + ", anio de Publicacion=" + anioPublicacion + ", precio=" + precio + ", es A Colores=" + esAColores + ", es Blanco o Negro=" + esBoN + ", tiene Imagenes=" + tieneImagenes + ", autor=" + autor.toString() + '}';
     }
 
     public String toArchivo() {
